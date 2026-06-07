@@ -30,4 +30,15 @@ app.get('/productos', (req, res) => {
   res.json(productos);
 });
 
+app.get('/usuarios/:id', (req, res) => {
+  const idBuscado = parseInt(req.params.id);
+
+  const usuarioEncontrado = usuarios.find((usuario) => usuario.id === idBuscado);
+
+  if (!usuarioEncontrado) {
+    return res.status(404).send('Usuario no encontrado.');
+  }
+
+  res.json(usuarioEncontrado);
+});
 module.exports = app;
