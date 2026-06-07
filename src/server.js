@@ -20,6 +20,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/productos', (req, res) => {
+  const categoria = req.query.categoria;
+
+  if (categoria) {
+    const productosFiltrados = productos.filter((producto) => producto.categoria === categoria);
+    return res.json(productosFiltrados);
+  }
+
   res.json(productos);
 });
 
