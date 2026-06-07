@@ -19,4 +19,8 @@ app.get('/', (req, res) => {
   res.send('Bienvenid@s a nuestro servidor Express!');
 });
 
+app.get('/productos', (req, res) => {
+  res.json(productos);
+});
+
 module.exports = app;
